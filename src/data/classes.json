@@ -5,7 +5,7 @@
     "description": "Dynamic, breath-synchronized movement to build heat and flexibility",
     "duration": "60 min",
     "level": "All Levels",
-    "image": "class-vinyasa.webp"
+    "image": "class-vinyasa.jpg"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "description": "Slow-paced practice with poses held for longer periods for deep release",
     "duration": "75 min",
     "level": "All Levels",
-    "image": "class-yin.webp"
+    "image": "class-yin.jpg"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "description": "Start your day with guided meditation and breathwork",
     "duration": "30 min",
     "level": "Beginner",
-    "image": "class-meditation.webp"
+    "image": "class-meditation.jpg"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "description": "Gentle practice designed for expecting mothers at any trimester",
     "duration": "60 min",
     "level": "Prenatal",
-    "image": "class-prenatal.webp"
+    "image": "class-prenatal.jpg"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "description": "Deeply relaxing practice using props for complete surrender",
     "duration": "75 min",
     "level": "All Levels",
-    "image": "class-restorative.webp"
+    "image": "class-restorative.jpg"
   },
   {
     "id": 6,
@@ -45,6 +45,6 @@
     "description": "Challenging, fitness-based approach to vinyasa-style yoga",
     "duration": "60 min",
     "level": "Intermediate",
-    "image": "class-breathwork.webp"
+    "image": "class-breathwork.jpg"
   }
 ]
