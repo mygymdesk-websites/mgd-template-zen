@@ -21,8 +21,11 @@ const ClassCard = ({ name, description, duration, level, image }: ClassCardProps
         <img
           src={image}
           alt={name}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          width={400}
+          height={224}
           loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 will-change-transform"
         />
         <div className="absolute inset-0 bg-foreground/10 group-hover:bg-foreground/0 transition-colors duration-500" />
       </div>

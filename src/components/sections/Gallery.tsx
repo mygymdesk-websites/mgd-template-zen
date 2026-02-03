@@ -56,8 +56,11 @@ const Gallery = () => {
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-full object-cover aspect-square md:aspect-auto transition-transform duration-500 group-hover:scale-105"
+                  width={index === 0 || index === 5 ? 800 : 400}
+                  height={index === 0 || index === 5 ? 800 : 400}
                   loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover aspect-square md:aspect-auto transition-transform duration-500 group-hover:scale-105 will-change-transform"
                 />
               </motion.div>
             ))}
