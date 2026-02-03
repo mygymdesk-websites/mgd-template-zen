@@ -71,8 +71,11 @@ const About = () => {
               <img
                 src={aboutImage}
                 alt="Our peaceful yoga studio"
-                className="w-full h-[500px] object-cover"
+                width={600}
+                height={500}
                 loading="lazy"
+                decoding="async"
+                className="w-full h-[500px] object-cover"
               />
             </div>
             {/* Decorative Element */}

@@ -17,8 +17,11 @@ const TeacherCard = ({ name, title, bio, certifications, image }: TeacherCardPro
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-cover rounded-full border-4 border-primary/20 group-hover:border-primary/40 transition-colors duration-300"
+            width={128}
+            height={128}
             loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover rounded-full border-4 border-primary/20 group-hover:border-primary/40 transition-colors duration-300"
           />
         </div>
 

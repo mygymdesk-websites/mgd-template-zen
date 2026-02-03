@@ -88,11 +88,32 @@
     line-height: 1.7;
   }
 
+  /* Font display swap for performance */
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Lato';
+    font-display: swap;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
     line-height: 1.2;
     letter-spacing: 0.02em;
+  }
+
+  /* GPU-accelerated properties */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  /* Performance-optimized image containers */
+  img {
+    content-visibility: auto;
   }
 }
 
@@ -249,4 +270,37 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary));
+}
+
+/* Scroll Indicator Animation - CSS only */
+@keyframes scroll-indicator {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(12px);
+    opacity: 0.5;
+  }
+}
+
+.animate-scroll-indicator {
+  animation: scroll-indicator 2s ease-in-out infinite;
+}
+
+/* Fade-in with delay support */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fade-in-up 0.6s ease-out forwards;
 }
