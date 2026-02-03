@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Leaf, Heart, Users, Sparkles } from 'lucide-react';
 import { useInView } from '@/hooks/useInView';
-import aboutImage from '@/assets/about-studio.jpg';
+import aboutImage from '@/assets/about-studio.webp';
 
 const values = [
   { icon: Leaf, title: 'Mindful Practice', description: 'Every movement with intention' },
