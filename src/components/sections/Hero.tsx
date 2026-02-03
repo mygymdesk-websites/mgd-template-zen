@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, type Easing } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import heroImage from '@/assets/hero-yoga.jpg';
+import heroImage from '@/assets/hero-yoga.webp';
 import { scrollToSection } from '@/lib/smoothScroll';
 
 const easeOut: Easing = [0.16, 1, 0.3, 1];
