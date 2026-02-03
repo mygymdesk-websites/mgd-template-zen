@@ -12,12 +12,12 @@ import aboutStudio from '@/assets/about-studio.jpg';
 import classVinyasa from '@/assets/class-vinyasa.jpg';
 
 const images = [
-  { src: gallery1, alt: 'Studio reception area' },
-  { src: gallery2, alt: 'Meditation corner' },
-  { src: gallery3, alt: 'Yoga props' },
-  { src: gallery4, alt: 'Tea lounge' },
-  { src: aboutStudio, alt: 'Main practice space' },
-  { src: classVinyasa, alt: 'Group yoga class' },
+  { src: gallery1, alt: 'Studio reception area', span: true },
+  { src: gallery2, alt: 'Meditation corner', span: false },
+  { src: gallery3, alt: 'Yoga props', span: false },
+  { src: gallery4, alt: 'Tea lounge', span: false },
+  { src: classVinyasa, alt: 'Group yoga class', span: true },
+  { src: aboutStudio, alt: 'Main practice space', span: false },
 ];
 
 const Gallery = () => {
@@ -49,15 +49,15 @@ const Gallery = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
                 className={`overflow-hidden rounded-2xl cursor-pointer group ${
-                  index === 0 || index === 5 ? 'md:col-span-2 md:row-span-2' : ''
+                  image.span ? 'md:col-span-2 md:row-span-2' : ''
                 }`}
                 onClick={() => setSelectedImage(image.src)}
               >
                 <img
                   src={image.src}
                   alt={image.alt}
-                  width={index === 0 || index === 5 ? 800 : 400}
-                  height={index === 0 || index === 5 ? 800 : 400}
+                  width={image.span ? 800 : 400}
+                  height={image.span ? 800 : 400}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover aspect-square md:aspect-auto transition-transform duration-500 group-hover:scale-105 will-change-transform"
