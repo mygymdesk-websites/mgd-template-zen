@@ -1,50 +1,53 @@
 [
   {
+    "id": 1,
     "name": "Drop-In",
     "price": "₹500",
-    "period": "per class",
-    "description": "Perfect for occasional visits",
-    "features": [
-      "Access to any single class",
-      "Yoga mat included",
-      "Complimentary tea after class",
-      "Valid for 30 days"
-    ],
+    "period": "class",
     "highlighted": false,
+    "description": "Perfect for trying us out",
+    "features": [
+      "Single class access",
+      "Any class type",
+      "Mat provided",
+      "Changing rooms access"
+    ],
     "cta": "Book a Class"
   },
   {
+    "id": 2,
     "name": "Monthly",
     "price": "₹3,999",
-    "period": "per month",
-    "description": "Unlimited classes for dedicated practitioners",
+    "period": "month",
+    "highlighted": true,
+    "description": "Our most flexible option",
     "features": [
       "Unlimited classes",
+      "All class types included",
       "Priority booking",
-      "Free mat storage",
-      "10% off workshops",
-      "Guest passes (2/month)",
-      "Cancel anytime"
+      "10% retail discount",
+      "1 guest pass/month",
+      "Free mat storage"
     ],
-    "highlighted": true,
     "cta": "Start Monthly",
     "badge": "Most Popular"
   },
   {
+    "id": 3,
     "name": "Annual",
     "price": "₹39,999",
-    "period": "per year",
-    "description": "Best value for committed yogis",
+    "period": "year",
+    "highlighted": false,
+    "description": "Best value - save ₹8,000",
     "features": [
       "Everything in Monthly",
-      "Save 2 months",
-      "20% off workshops",
-      "Free merchandise",
-      "Private session (1/year)",
-      "Early access to events"
+      "2 months free",
+      "Unlimited guest passes",
+      "Free workshop access",
+      "20% retail discount",
+      "Exclusive member events"
     ],
-    "highlighted": false,
     "cta": "Go Annual",
-    "savings": "Save ₹7,989"
+    "savings": "Save ₹8,000"
   }
 ]

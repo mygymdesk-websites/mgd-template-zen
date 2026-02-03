@@ -1,34 +1,38 @@
 [
   {
-    "name": "Sarah Mitchell",
+    "id": 1,
+    "name": "Ananya Sharma",
     "title": "Founder & Lead Teacher",
-    "specialization": "Vinyasa, Meditation",
-    "bio": "15+ years of practice, trained in India. Sarah brings warmth and wisdom to every class.",
+    "bio": "E-RYT 500 certified with 15 years of practice. Trained in Rishikesh, specializing in Hatha and Vinyasa.",
     "certifications": ["E-RYT 500", "YACEP"],
-    "image": "teacher-1.jpg"
+    "image": "teacher-1.jpg",
+    "instagram": "#"
   },
   {
-    "name": "David Chen",
-    "title": "Senior Instructor",
-    "specialization": "Power Yoga, Breathwork",
-    "bio": "Former athlete turned yogi. David's classes blend strength with mindfulness.",
-    "certifications": ["RYT 500", "Pranayama"],
-    "image": "teacher-2.jpg"
+    "id": 2,
+    "name": "Deepak Menon",
+    "title": "Meditation & Breathwork",
+    "bio": "Vipassana practitioner for 20 years. Guides students through transformative meditation journeys.",
+    "certifications": ["RYT 200", "Meditation Teacher"],
+    "image": "teacher-2.jpg",
+    "instagram": "#"
   },
   {
-    "name": "Elena Rodriguez",
-    "title": "Restorative Specialist",
-    "specialization": "Yin, Restorative, Therapy",
-    "bio": "20 years of teaching experience with a focus on healing and restoration.",
-    "certifications": ["E-RYT 500", "Yoga Therapy"],
-    "image": "teacher-3.jpg"
+    "id": 3,
+    "name": "Priya Krishnan",
+    "title": "Yin & Restorative Specialist",
+    "bio": "Focuses on the healing aspects of yoga. Trained in Thailand and Bali.",
+    "certifications": ["RYT 500", "Yin Yoga Certified"],
+    "image": "teacher-3.jpg",
+    "instagram": "#"
   },
   {
-    "name": "Maya Patel",
-    "title": "Community Teacher",
-    "specialization": "Prenatal, Gentle Flow",
-    "bio": "Passionate about making yoga accessible to everyone, especially new mothers.",
-    "certifications": ["RYT 200", "Prenatal"],
-    "image": "teacher-4.jpg"
+    "id": 4,
+    "name": "Arjun Nair",
+    "title": "Power & Vinyasa Teacher",
+    "bio": "Former athlete bringing energy and alignment focus to dynamic practices.",
+    "certifications": ["RYT 200", "Sports Yoga"],
+    "image": "teacher-4.jpg",
+    "instagram": "#"
   }
 ]

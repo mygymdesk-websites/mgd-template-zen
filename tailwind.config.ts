@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         heading: ['"Cormorant Garamond"', 'serif'],
         body: ['"Lato"', 'sans-serif'],
+        display: ['"Cormorant Garamond"', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -54,6 +55,19 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        zen: {
+          cream: '#F5F5F0',
+          white: '#FFFFFF',
+          muted: '#E8E6E1',
+          sage: '#9CAF88',
+          'sage-dark': '#7A8F6A',
+          'sage-light': '#B8C9A8',
+          charcoal: '#2C2C2C',
+          gray: '#5A5A5A',
+          'gray-light': '#8A8A8A',
+          border: '#E0DED8',
+          gold: '#C4A77D',
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -62,11 +76,15 @@ export default {
         xl: "1rem",
         "2xl": "1.25rem",
         "3xl": "1.5rem",
+        'soft': '12px',
+        'softer': '16px',
+        'pill': '9999px',
       },
       boxShadow: {
-        soft: "var(--shadow-soft)",
+        soft: "0 4px 20px rgba(0, 0, 0, 0.05)",
         card: "var(--shadow-card)",
         glow: "var(--shadow-glow)",
+        'soft-lg': '0 8px 30px rgba(0, 0, 0, 0.08)',
       },
       keyframes: {
         "accordion-down": {
@@ -96,6 +114,8 @@ export default {
         "fade-up": "fade-up 0.8s ease-out",
         "fade-in": "fade-in 0.6s ease-out",
         float: "float 6s ease-in-out infinite",
+        'float-slow': 'float 6s ease-in-out infinite',
+        'pulse-soft': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },
