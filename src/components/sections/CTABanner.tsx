@@ -1,16 +1,31 @@
-import { motion } from 'framer-motion';
+import { motion, type Easing } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import { useInView } from '@/hooks/useInView';
+import { scrollToSection } from '@/lib/smoothScroll';
+
+const easeOut: Easing = [0.16, 1, 0.3, 1];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: easeOut },
+  },
+};
 
 const CTABanner = () => {
   const { ref, isInView } = useInView();
-
-  const scrollToContact = () => {
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section className="py-20 bg-primary relative overflow-hidden" ref={ref}>
@@ -20,27 +35,40 @@ const CTABanner = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
           className="text-center"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-dark/30 text-primary-foreground/90 mb-6">
+          <motion.div
+            variants={itemVariants}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-dark/30 text-primary-foreground/90 mb-6"
+          >
             <Sparkles size={16} />
-            <span className="text-sm font-medium">Special Offer</span>
-          </div>
+            <span className="text-sm font-medium">Special offer</span>
+          </motion.div>
 
-          <h2 className="font-heading text-4xl md:text-5xl text-primary-foreground mb-4">
-            Begin Your Journey Today
-          </h2>
-          <p className="text-primary-foreground/80 text-lg mb-8 max-w-xl mx-auto">
+          <motion.h2
+            variants={itemVariants}
+            className="font-heading text-4xl md:text-5xl text-primary-foreground mb-4 font-light"
+          >
+            Begin your journey today
+          </motion.h2>
+          <motion.p
+            variants={itemVariants}
+            className="text-primary-foreground/80 text-lg mb-8 max-w-xl mx-auto"
+          >
             Your first class is on us. Experience the peace and transformation that
             awaits you at Serenity Yoga.
-          </p>
+          </motion.p>
 
-          <button onClick={scrollToContact} className="btn-zen-white">
-            Claim Your Free Class
-          </button>
+          <motion.button
+            variants={itemVariants}
+            onClick={() => scrollToSection('#contact')}
+            className="btn-zen-white"
+          >
+            Claim your free class
+          </motion.button>
         </motion.div>
       </div>
 

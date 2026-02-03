@@ -1,4 +1,6 @@
 import { Check, Star } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { openWhatsAppWithPlan } from '@/lib/smoothScroll';
 
 interface PricingCardProps {
   name: string;
@@ -23,12 +25,18 @@ const PricingCard = ({
   badge,
   savings,
 }: PricingCardProps) => {
+  const handleClick = () => {
+    openWhatsAppWithPlan(name, price);
+  };
+
   return (
-    <div
-      className={`relative rounded-3xl p-8 ${
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className={`relative rounded-3xl p-8 transition-shadow duration-500 ${
         highlighted
-          ? 'bg-primary text-primary-foreground shadow-glow'
-          : 'bg-background border border-border'
+          ? 'bg-primary text-primary-foreground shadow-glow hover:shadow-lg'
+          : 'bg-background border border-border hover:shadow-card'
       }`}
     >
       {/* Badge */}
@@ -53,7 +61,7 @@ const PricingCard = ({
       {/* Plan Info */}
       <div className="text-center mb-8">
         <h3
-          className={`font-heading text-2xl mb-2 ${
+          className={`font-heading text-2xl mb-2 font-normal ${
             highlighted ? 'text-primary-foreground' : 'text-foreground'
           }`}
         >
@@ -61,7 +69,7 @@ const PricingCard = ({
         </h3>
         <div className="mb-2">
           <span
-            className={`font-heading text-4xl ${
+            className={`font-heading text-4xl font-light ${
               highlighted ? 'text-primary-foreground' : 'text-foreground'
             }`}
           >
@@ -107,15 +115,16 @@ const PricingCard = ({
 
       {/* CTA */}
       <button
-        className={`w-full py-3 rounded-full font-medium transition-all duration-300 ${
+        onClick={handleClick}
+        className={`w-full py-3 rounded-full font-medium transition-all duration-500 hover:-translate-y-1 ${
           highlighted
-            ? 'bg-card text-foreground hover:bg-secondary'
+            ? 'bg-card text-foreground hover:bg-secondary hover:shadow-soft'
             : 'btn-zen-primary'
         }`}
       >
         {cta}
       </button>
-    </div>
+    </motion.div>
   );
 };
 
