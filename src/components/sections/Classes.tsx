@@ -4,20 +4,20 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import ClassCard from '@/components/ui/ClassCard';
 import { scrollToSection } from '@/lib/smoothScroll';
 
-import classVinyasa from '@/assets/class-vinyasa.webp';
-import classYin from '@/assets/class-yin.webp';
-import classMeditation from '@/assets/class-meditation.webp';
-import classPrenatal from '@/assets/class-prenatal.webp';
-import classRestorative from '@/assets/class-restorative.webp';
-import classBreathwork from '@/assets/class-breathwork.webp';
+import classVinyasa from '@/assets/class-vinyasa.jpg';
+import classYin from '@/assets/class-yin.jpg';
+import classMeditation from '@/assets/class-meditation.jpg';
+import classPrenatal from '@/assets/class-prenatal.jpg';
+import classRestorative from '@/assets/class-restorative.jpg';
+import classBreathwork from '@/assets/class-breathwork.jpg';
 
 const classImages: Record<string, string> = {
-  'class-vinyasa.webp': classVinyasa,
-  'class-yin.webp': classYin,
-  'class-meditation.webp': classMeditation,
-  'class-prenatal.webp': classPrenatal,
-  'class-restorative.webp': classRestorative,
-  'class-breathwork.webp': classBreathwork,
+  'class-vinyasa.jpg': classVinyasa,
+  'class-yin.jpg': classYin,
+  'class-meditation.jpg': classMeditation,
+  'class-prenatal.jpg': classPrenatal,
+  'class-restorative.jpg': classRestorative,
+  'class-breathwork.jpg': classBreathwork,
 };
 
 import classesData from '@/data/classes.json';
