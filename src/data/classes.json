@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Vinyasa Flow",
+    "description": "Dynamic sequences linking breath with movement for strength and flexibility.",
+    "duration": "60 min",
+    "level": "All Levels",
+    "image": "class-vinyasa.jpg"
+  },
+  {
+    "name": "Yin Yoga",
+    "description": "Deep stretches held for longer periods to target connective tissues.",
+    "duration": "75 min",
+    "level": "Beginner",
+    "image": "class-yin.jpg"
+  },
+  {
+    "name": "Meditation",
+    "description": "Guided sessions to cultivate inner peace and mental clarity.",
+    "duration": "45 min",
+    "level": "All Levels",
+    "image": "class-meditation.jpg"
+  },
+  {
+    "name": "Prenatal Yoga",
+    "description": "Gentle, supportive practice designed for expecting mothers.",
+    "duration": "60 min",
+    "level": "Beginner",
+    "image": "class-prenatal.jpg"
+  },
+  {
+    "name": "Restorative",
+    "description": "Deep relaxation using props for complete rest and renewal.",
+    "duration": "75 min",
+    "level": "Beginner",
+    "image": "class-restorative.jpg"
+  },
+  {
+    "name": "Breathwork",
+    "description": "Pranayama techniques to energize, calm, and balance.",
+    "duration": "45 min",
+    "level": "All Levels",
+    "image": "class-breathwork.jpg"
+  }
+]

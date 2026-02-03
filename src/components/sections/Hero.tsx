@@ -32,7 +32,7 @@ const Hero = () => {
           >
             <span className="section-tag block mb-6">Welcome to Serenity</span>
           </motion.div>
-          
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -50,8 +50,8 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
             className="text-lg md:text-xl text-muted-foreground mb-10 max-w-lg leading-relaxed"
           >
-            Discover balance, strength, and serenity through mindful movement 
-            in our peaceful sanctuary.
+            Discover balance, strength, and serenity through mindful movement in our
+            peaceful sanctuary.
           </motion.p>
 
           <motion.div

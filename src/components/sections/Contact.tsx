@@ -1,20 +1,21 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { toast } from 'sonner';
+import { useInView } from '@/hooks/useInView';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 const Contact = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { ref, isInView } = useInView();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
     toast.success('Message sent successfully! We will get back to you soon.');
     setIsSubmitting(false);
     (e.target as HTMLFormElement).reset();
@@ -28,14 +29,12 @@ const Contact = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="text-center mb-16"
         >
-          <span className="section-tag">Contact Us</span>
-          <h2 className="section-heading">Start Your Practice Today</h2>
-          <p className="section-subheading">
-            Have questions? We are here to help. Reach out and let us guide you 
-            on your yoga journey.
-          </p>
+          <SectionHeading
+            tag="Contact Us"
+            title="Start Your Practice Today"
+            subtitle="Have questions? We are here to help. Reach out and let us guide you on your yoga journey."
+          />
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
@@ -48,7 +47,10 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
                     Name
                   </label>
                   <input
@@ -61,7 +63,10 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
                     Phone
                   </label>
                   <input
@@ -75,7 +80,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-foreground mb-2"
+                >
                   Email
                 </label>
                 <input
@@ -89,16 +97,16 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="interest" className="block text-sm font-medium text-foreground mb-2">
+                <label
+                  htmlFor="interest"
+                  className="block text-sm font-medium text-foreground mb-2"
+                >
                   I am interested in...
                 </label>
-                <select
-                  id="interest"
-                  name="interest"
-                  className="zen-input"
-                  defaultValue=""
-                >
-                  <option value="" disabled>Select an option</option>
+                <select id="interest" name="interest" className="zen-input" defaultValue="">
+                  <option value="" disabled>
+                    Select an option
+                  </option>
                   <option value="classes">Yoga Classes</option>
                   <option value="membership">Membership</option>
                   <option value="private">Private Sessions</option>
@@ -108,7 +116,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-foreground mb-2"
+                >
                   Message
                 </label>
                 <textarea
@@ -156,7 +167,8 @@ const Contact = () => {
                 <div>
                   <h4 className="font-medium text-foreground mb-1">Studio Address</h4>
                   <p className="text-muted-foreground">
-                    123 Tranquil Lane, Koramangala<br />
+                    123 Tranquil Lane, Koramangala
+                    <br />
                     Bangalore, Karnataka 560034
                   </p>
                 </div>

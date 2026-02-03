@@ -1,59 +1,37 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-
-const testimonials = [
-  {
-    quote: "Serenity Yoga has completely transformed my life. The peaceful atmosphere and caring teachers have helped me find balance I never knew was possible.",
-    name: 'Priya Sharma',
-    duration: '3 years practicing',
-    avatar: 'PS',
-  },
-  {
-    quote: "As someone who was intimidated by yoga, I can't believe how welcoming this studio is. The instructors meet you exactly where you are.",
-    name: 'Michael Torres',
-    duration: '1 year practicing',
-    avatar: 'MT',
-  },
-  {
-    quote: "The prenatal classes were a blessing during my pregnancy. Maya's guidance and the supportive community made all the difference.",
-    name: 'Ananya Desai',
-    duration: '2 years practicing',
-    avatar: 'AD',
-  },
-  {
-    quote: "I've tried many studios over the years, but Serenity truly lives up to its name. Every class leaves me feeling renewed and at peace.",
-    name: 'Robert Kim',
-    duration: '4 years practicing',
-    avatar: 'RK',
-  },
-];
+import { useInView } from '@/hooks/useInView';
+import SectionHeading from '@/components/ui/SectionHeading';
+import TestimonialCard from '@/components/ui/TestimonialCard';
+import testimonialsData from '@/data/testimonials.json';
 
 const Testimonials = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { ref, isInView } = useInView();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+      setCurrentIndex((prev) => (prev + 1) % testimonialsData.length);
     }, 5000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
   const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length
+    );
   };
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex((prev) => (prev + 1) % testimonialsData.length);
   };
 
   return (
-    <section 
-      className="section-padding gradient-sage" 
+    <section
+      className="section-padding gradient-sage"
       ref={ref}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -64,10 +42,8 @@ const Testimonials = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="text-center mb-16"
         >
-          <span className="section-tag">Testimonials</span>
-          <h2 className="section-heading">Words from Our Community</h2>
+          <SectionHeading tag="Testimonials" title="Words from Our Community" />
         </motion.div>
 
         {/* Testimonial Carousel */}
@@ -90,23 +66,8 @@ const Testimonials = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.5 }}
-              className="text-center"
             >
-              <p className="font-heading text-xl md:text-2xl text-foreground leading-relaxed mb-8 italic">
-                "{testimonials[currentIndex].quote}"
-              </p>
-
-              <div className="flex flex-col items-center">
-                <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-medium mb-3">
-                  {testimonials[currentIndex].avatar}
-                </div>
-                <h4 className="font-medium text-foreground">
-                  {testimonials[currentIndex].name}
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  {testimonials[currentIndex].duration}
-                </p>
-              </div>
+              <TestimonialCard {...testimonialsData[currentIndex]} />
             </motion.div>
 
             {/* Navigation Arrows */}
@@ -128,7 +89,7 @@ const Testimonials = () => {
 
           {/* Dots Navigation */}
           <div className="flex justify-center gap-2 mt-6">
-            {testimonials.map((_, index) => (
+            {testimonialsData.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}

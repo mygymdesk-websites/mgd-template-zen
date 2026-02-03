@@ -1,46 +1,67 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
+import { useInView } from '@/hooks/useInView';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 const schedule = [
-  { day: 'Monday', classes: [
-    { time: '6:30 AM', name: 'Morning Vinyasa' },
-    { time: '10:00 AM', name: 'Gentle Flow' },
-    { time: '6:00 PM', name: 'Power Yoga' },
-  ]},
-  { day: 'Tuesday', classes: [
-    { time: '7:00 AM', name: 'Breathwork' },
-    { time: '12:00 PM', name: 'Lunch Yoga' },
-    { time: '7:00 PM', name: 'Yin Yoga' },
-  ]},
-  { day: 'Wednesday', classes: [
-    { time: '6:30 AM', name: 'Morning Vinyasa' },
-    { time: '10:00 AM', name: 'Prenatal Yoga' },
-    { time: '6:00 PM', name: 'Meditation' },
-  ]},
-  { day: 'Thursday', classes: [
-    { time: '7:00 AM', name: 'Sunrise Flow' },
-    { time: '12:00 PM', name: 'Lunch Yoga' },
-    { time: '7:00 PM', name: 'Restorative' },
-  ]},
-  { day: 'Friday', classes: [
-    { time: '6:30 AM', name: 'Morning Vinyasa' },
-    { time: '10:00 AM', name: 'Gentle Flow' },
-    { time: '5:00 PM', name: 'Weekend Prep Flow' },
-  ]},
-  { day: 'Saturday', classes: [
-    { time: '8:00 AM', name: 'Community Class' },
-    { time: '10:00 AM', name: 'Power Yoga' },
-  ]},
-  { day: 'Sunday', classes: [
-    { time: '9:00 AM', name: 'Slow Flow' },
-    { time: '11:00 AM', name: 'Yin & Meditation' },
-  ]},
+  {
+    day: 'Monday',
+    classes: [
+      { time: '6:30 AM', name: 'Morning Vinyasa' },
+      { time: '10:00 AM', name: 'Gentle Flow' },
+      { time: '6:00 PM', name: 'Power Yoga' },
+    ],
+  },
+  {
+    day: 'Tuesday',
+    classes: [
+      { time: '7:00 AM', name: 'Breathwork' },
+      { time: '12:00 PM', name: 'Lunch Yoga' },
+      { time: '7:00 PM', name: 'Yin Yoga' },
+    ],
+  },
+  {
+    day: 'Wednesday',
+    classes: [
+      { time: '6:30 AM', name: 'Morning Vinyasa' },
+      { time: '10:00 AM', name: 'Prenatal Yoga' },
+      { time: '6:00 PM', name: 'Meditation' },
+    ],
+  },
+  {
+    day: 'Thursday',
+    classes: [
+      { time: '7:00 AM', name: 'Sunrise Flow' },
+      { time: '12:00 PM', name: 'Lunch Yoga' },
+      { time: '7:00 PM', name: 'Restorative' },
+    ],
+  },
+  {
+    day: 'Friday',
+    classes: [
+      { time: '6:30 AM', name: 'Morning Vinyasa' },
+      { time: '10:00 AM', name: 'Gentle Flow' },
+      { time: '5:00 PM', name: 'Weekend Prep Flow' },
+    ],
+  },
+  {
+    day: 'Saturday',
+    classes: [
+      { time: '8:00 AM', name: 'Community Class' },
+      { time: '10:00 AM', name: 'Power Yoga' },
+    ],
+  },
+  {
+    day: 'Sunday',
+    classes: [
+      { time: '9:00 AM', name: 'Slow Flow' },
+      { time: '11:00 AM', name: 'Yin & Meditation' },
+    ],
+  },
 ];
 
 const Schedule = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { ref, isInView } = useInView();
 
   return (
     <section className="section-padding bg-card" ref={ref}>
@@ -50,10 +71,8 @@ const Schedule = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="text-center mb-12"
         >
-          <span className="section-tag">Weekly Schedule</span>
-          <h2 className="section-heading">Find Your Perfect Time</h2>
+          <SectionHeading tag="Weekly Schedule" title="Find Your Perfect Time" />
         </motion.div>
 
         {/* Schedule Grid */}

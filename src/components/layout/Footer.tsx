@@ -34,7 +34,7 @@ const Footer = () => {
               SERENITY YOGA
             </a>
             <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-              A peaceful sanctuary for mind, body, and spirit. Join our community 
+              A peaceful sanctuary for mind, body, and spirit. Join our community
               and discover the transformative power of yoga.
             </p>
             <div className="flex gap-3">
