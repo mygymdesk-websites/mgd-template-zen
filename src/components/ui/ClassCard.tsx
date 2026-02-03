@@ -1,4 +1,5 @@
 import { Clock, BarChart2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface ClassCardProps {
   name: string;
@@ -10,21 +11,25 @@ interface ClassCardProps {
 
 const ClassCard = ({ name, description, duration, level, image }: ClassCardProps) => {
   return (
-    <div className="group zen-card overflow-hidden cursor-pointer">
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="group zen-card overflow-hidden cursor-pointer hover:shadow-card"
+    >
       {/* Image */}
       <div className="relative h-56 overflow-hidden">
         <img
           src={image}
           alt={name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-foreground/10 group-hover:bg-foreground/0 transition-colors duration-300" />
+        <div className="absolute inset-0 bg-foreground/10 group-hover:bg-foreground/0 transition-colors duration-500" />
       </div>
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="font-heading text-2xl text-foreground mb-2">{name}</h3>
+        <h3 className="font-heading text-2xl text-foreground mb-2 font-normal">{name}</h3>
         <p className="text-muted-foreground mb-4 line-clamp-2">{description}</p>
         <div className="flex items-center gap-4">
           <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
@@ -37,7 +42,7 @@ const ClassCard = ({ name, description, duration, level, image }: ClassCardProps
           </span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

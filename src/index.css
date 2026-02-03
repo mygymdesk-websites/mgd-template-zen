@@ -92,21 +92,22 @@
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
     line-height: 1.2;
+    letter-spacing: 0.02em;
   }
 }
 
 @layer components {
   /* Zen Button Variants */
   .btn-zen {
-    @apply inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-medium transition-all duration-300 ease-out;
+    @apply inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-medium transition-all duration-500 ease-out;
   }
 
   .btn-zen-primary {
-    @apply btn-zen bg-primary text-primary-foreground hover:bg-[hsl(var(--primary-dark))] shadow-soft;
+    @apply btn-zen bg-primary text-primary-foreground hover:bg-[hsl(var(--primary-dark))] shadow-soft hover:shadow-card hover:-translate-y-1;
   }
 
   .btn-zen-outline {
-    @apply btn-zen border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground;
+    @apply btn-zen border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground hover:-translate-y-1 hover:shadow-soft;
   }
 
   .btn-zen-ghost {
@@ -114,7 +115,7 @@
   }
 
   .btn-zen-white {
-    @apply btn-zen bg-white text-primary hover:bg-secondary shadow-soft;
+    @apply btn-zen bg-white text-primary hover:bg-secondary shadow-soft hover:shadow-card hover:-translate-y-1;
   }
 
   /* Decorative Elements */
@@ -122,8 +123,17 @@
     @apply w-16 h-0.5 bg-primary mx-auto;
   }
 
+  /* Section Divider - decorative line between sections */
+  .section-divider {
+    @apply w-full max-w-xs h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent mx-auto my-0;
+  }
+
   .zen-card {
-    @apply bg-card rounded-2xl shadow-soft transition-all duration-300 ease-out hover:shadow-card;
+    @apply bg-card rounded-2xl shadow-soft transition-all duration-500 ease-out;
+  }
+
+  .zen-card-hover {
+    @apply hover:-translate-y-1 hover:shadow-card;
   }
 
   /* Section Styling */
@@ -132,15 +142,15 @@
   }
 
   .section-tag {
-    @apply text-sm font-medium uppercase tracking-[0.2em] text-primary mb-4;
+    @apply text-sm font-medium tracking-[0.15em] text-primary mb-4;
   }
 
   .section-heading {
-    @apply text-4xl md:text-5xl lg:text-[42px] text-foreground mb-6;
+    @apply text-4xl md:text-5xl lg:text-[42px] text-foreground mb-6 tracking-wide;
   }
 
   .section-subheading {
-    @apply text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto;
+    @apply text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed;
   }
 
   /* Input Styling */
@@ -148,7 +158,7 @@
     @apply w-full px-5 py-4 rounded-xl border border-border bg-white text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300;
   }
 
-  /* Floating Animation */
+  /* Floating Animation - Slow and calming */
   @keyframes float {
     0%, 100% {
       transform: translateY(0);
@@ -162,20 +172,34 @@
     animation: float 6s ease-in-out infinite;
   }
 
-  /* Gentle Pulse */
+  /* Gentle Pulse - Slower for zen feel */
   @keyframes gentle-pulse {
     0%, 100% {
       opacity: 1;
       transform: scale(1);
     }
     50% {
-      opacity: 0.8;
-      transform: scale(1.05);
+      opacity: 0.7;
+      transform: scale(1.08);
     }
   }
 
   .animate-gentle-pulse {
-    animation: gentle-pulse 3s ease-in-out infinite;
+    animation: gentle-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* WhatsApp Pulse Animation */
+  @keyframes whatsapp-pulse {
+    0%, 100% {
+      box-shadow: 0 4px 15px rgba(156, 175, 136, 0.4);
+    }
+    50% {
+      box-shadow: 0 4px 25px rgba(156, 175, 136, 0.6);
+    }
+  }
+
+  .animate-whatsapp-pulse {
+    animation: whatsapp-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
   /* Gradient Backgrounds */

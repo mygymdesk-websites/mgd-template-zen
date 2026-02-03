@@ -1,69 +1,98 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, type Easing } from 'framer-motion';
+import { useRef } from 'react';
 import heroImage from '@/assets/hero-yoga.jpg';
+import { scrollToSection } from '@/lib/smoothScroll';
+
+const easeOut: Easing = [0.16, 1, 0.3, 1];
 
 const Hero = () => {
-  const scrollToContact = () => {
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  // Parallax effect with 0.3 ratio
+  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: easeOut },
+    },
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center">
-      {/* Background Image */}
-      <div className="absolute inset-0">
+    <section
+      id="home"
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center overflow-hidden"
+    >
+      {/* Background Image with Parallax */}
+      <motion.div className="absolute inset-0" style={{ y: imageY }}>
         <img
           src={heroImage}
           alt="Yoga practice in peaceful studio"
-          className="w-full h-full object-cover"
+          className="w-full h-[120%] object-cover"
           loading="eager"
         />
         <div className="absolute inset-0 gradient-hero-overlay" />
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+        <motion.div
+          className="max-w-2xl"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.span
+            variants={itemVariants}
+            className="section-tag block mb-6"
           >
-            <span className="section-tag block mb-6">Welcome to Serenity</span>
-          </motion.div>
+            Welcome to Serenity
+          </motion.span>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="font-heading text-5xl md:text-6xl lg:text-7xl text-foreground mb-6 leading-tight"
+            variants={itemVariants}
+            className="font-heading text-5xl md:text-6xl lg:text-7xl text-foreground mb-6 leading-tight font-light"
           >
-            Find Your
+            Find your
             <br />
-            <span className="text-primary">Inner Peace</span>
+            <span className="text-primary">inner peace</span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+            variants={itemVariants}
             className="text-lg md:text-xl text-muted-foreground mb-10 max-w-lg leading-relaxed"
           >
             Discover balance, strength, and serenity through mindful movement in our
             peaceful sanctuary.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
-          >
-            <button onClick={scrollToContact} className="btn-zen-primary">
-              Begin Your Journey
+          <motion.div variants={itemVariants}>
+            <button
+              onClick={() => scrollToSection('#classes')}
+              className="btn-zen-primary"
+            >
+              Begin your journey
             </button>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Decorative Lotus Element */}
@@ -97,7 +126,7 @@ const Hero = () => {
         <div className="w-6 h-10 border-2 border-primary/40 rounded-full flex justify-center">
           <motion.div
             animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             className="w-1.5 h-3 bg-primary rounded-full mt-2"
           />
         </div>

@@ -16,7 +16,7 @@ const SectionHeading = ({
   return (
     <div className={`mb-16 ${centered ? 'text-center' : ''} ${className}`}>
       {tag && <span className="section-tag">{tag}</span>}
-      <h2 className="section-heading">{title}</h2>
+      <h2 className="section-heading font-light">{title}</h2>
       {subtitle && (
         <p className={`section-subheading ${centered ? 'mx-auto' : ''}`}>
           {subtitle}
