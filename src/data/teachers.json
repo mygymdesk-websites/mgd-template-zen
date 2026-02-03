@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Sarah Mitchell",
+    "title": "Founder & Lead Teacher",
+    "specialization": "Vinyasa, Meditation",
+    "bio": "15+ years of practice, trained in India. Sarah brings warmth and wisdom to every class.",
+    "certifications": ["E-RYT 500", "YACEP"],
+    "image": "teacher-1.jpg"
+  },
+  {
+    "name": "David Chen",
+    "title": "Senior Instructor",
+    "specialization": "Power Yoga, Breathwork",
+    "bio": "Former athlete turned yogi. David's classes blend strength with mindfulness.",
+    "certifications": ["RYT 500", "Pranayama"],
+    "image": "teacher-2.jpg"
+  },
+  {
+    "name": "Elena Rodriguez",
+    "title": "Restorative Specialist",
+    "specialization": "Yin, Restorative, Therapy",
+    "bio": "20 years of teaching experience with a focus on healing and restoration.",
+    "certifications": ["E-RYT 500", "Yoga Therapy"],
+    "image": "teacher-3.jpg"
+  },
+  {
+    "name": "Maya Patel",
+    "title": "Community Teacher",
+    "specialization": "Prenatal, Gentle Flow",
+    "bio": "Passionate about making yoga accessible to everyone, especially new mothers.",
+    "certifications": ["RYT 200", "Prenatal"],
+    "image": "teacher-4.jpg"
+  }
+]

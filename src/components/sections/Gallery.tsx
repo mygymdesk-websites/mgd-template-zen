@@ -1,6 +1,8 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { X } from 'lucide-react';
+import { useInView } from '@/hooks/useInView';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 import gallery1 from '@/assets/gallery-1.jpg';
 import gallery2 from '@/assets/gallery-2.jpg';
@@ -19,8 +21,7 @@ const images = [
 ];
 
 const Gallery = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { ref, isInView } = useInView();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
@@ -32,10 +33,11 @@ const Gallery = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="text-center mb-16"
           >
-            <span className="section-tag">Our Space</span>
-            <h2 className="section-heading">A Peaceful Sanctuary in the Heart of the City</h2>
+            <SectionHeading
+              tag="Our Space"
+              title="A Peaceful Sanctuary in the Heart of the City"
+            />
           </motion.div>
 
           {/* Gallery Grid */}

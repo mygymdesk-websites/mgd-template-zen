@@ -1,10 +1,9 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
+import { useInView } from '@/hooks/useInView';
 
 const CTABanner = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { ref, isInView } = useInView();
 
   const scrollToContact = () => {
     const element = document.querySelector('#contact');
@@ -18,7 +17,7 @@ const CTABanner = () => {
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-primary-light/20 rounded-full -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-dark/20 rounded-full translate-x-1/2 translate-y-1/2" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -30,15 +29,15 @@ const CTABanner = () => {
             <Sparkles size={16} />
             <span className="text-sm font-medium">Special Offer</span>
           </div>
-          
+
           <h2 className="font-heading text-4xl md:text-5xl text-primary-foreground mb-4">
             Begin Your Journey Today
           </h2>
           <p className="text-primary-foreground/80 text-lg mb-8 max-w-xl mx-auto">
-            Your first class is on us. Experience the peace and transformation 
-            that awaits you at Serenity Yoga.
+            Your first class is on us. Experience the peace and transformation that
+            awaits you at Serenity Yoga.
           </p>
-          
+
           <button onClick={scrollToContact} className="btn-zen-white">
             Claim Your Free Class
           </button>

@@ -1,6 +1,6 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Leaf, Heart, Users, Sparkles } from 'lucide-react';
+import { useInView } from '@/hooks/useInView';
 import aboutImage from '@/assets/about-studio.jpg';
 
 const values = [
@@ -11,8 +11,7 @@ const values = [
 ];
 
 const About = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { ref, isInView } = useInView();
 
   return (
     <section id="about" className="section-padding bg-card" ref={ref}>
@@ -25,19 +24,17 @@ const About = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             <span className="section-tag">Our Story</span>
-            <h2 className="section-heading">
-              A Sanctuary for Mind & Body
-            </h2>
+            <h2 className="section-heading">A Sanctuary for Mind & Body</h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              Founded in 2015, Serenity Yoga was born from a simple belief: that 
-              everyone deserves a peaceful space to explore their practice. What 
-              started as a small studio has grown into a thriving community of 
+              Founded in 2015, Serenity Yoga was born from a simple belief: that
+              everyone deserves a peaceful space to explore their practice. What
+              started as a small studio has grown into a thriving community of
               practitioners united by their love for yoga.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed mb-10">
-              Our experienced teachers bring diverse backgrounds and specializations, 
-              ensuring that whether you're stepping onto the mat for the first time 
-              or deepening a lifelong practice, you'll find guidance that meets you 
+              Our experienced teachers bring diverse backgrounds and specializations,
+              ensuring that whether you're stepping onto the mat for the first time or
+              deepening a lifelong practice, you'll find guidance that meets you
               exactly where you are.
             </p>
 
