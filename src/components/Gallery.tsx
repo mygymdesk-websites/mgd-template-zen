@@ -1,0 +1,93 @@
+import { motion, useInView } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { X } from 'lucide-react';
+
+import gallery1 from '@/assets/gallery-1.jpg';
+import gallery2 from '@/assets/gallery-2.jpg';
+import gallery3 from '@/assets/gallery-3.jpg';
+import gallery4 from '@/assets/gallery-4.jpg';
+import aboutStudio from '@/assets/about-studio.jpg';
+import classVinyasa from '@/assets/class-vinyasa.jpg';
+
+const images = [
+  { src: gallery1, alt: 'Studio reception area' },
+  { src: gallery2, alt: 'Meditation corner' },
+  { src: gallery3, alt: 'Yoga props' },
+  { src: gallery4, alt: 'Tea lounge' },
+  { src: aboutStudio, alt: 'Main practice space' },
+  { src: classVinyasa, alt: 'Group yoga class' },
+];
+
+const Gallery = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  return (
+    <>
+      <section className="section-padding bg-background" ref={ref}>
+        <div className="container mx-auto px-6">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="text-center mb-16"
+          >
+            <span className="section-tag">Our Space</span>
+            <h2 className="section-heading">A Peaceful Sanctuary in the Heart of the City</h2>
+          </motion.div>
+
+          {/* Gallery Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {images.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+                className={`overflow-hidden rounded-2xl cursor-pointer group ${
+                  index === 0 || index === 5 ? 'md:col-span-2 md:row-span-2' : ''
+                }`}
+                onClick={() => setSelectedImage(image.src)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover aspect-square md:aspect-auto transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      {selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-foreground/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-6 right-6 text-card p-2 hover:bg-card/20 rounded-full transition-colors"
+            onClick={() => setSelectedImage(null)}
+            aria-label="Close lightbox"
+          >
+            <X size={32} />
+          </button>
+          <img
+            src={selectedImage}
+            alt="Gallery image"
+            className="max-w-full max-h-[90vh] rounded-2xl"
+          />
+        </motion.div>
+      )}
+    </>
+  );
+};
+
+export default Gallery;
