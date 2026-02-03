@@ -216,10 +216,18 @@ const Contact = () => {
             </div>
 
             {/* Map */}
-            <div className="rounded-2xl overflow-hidden shadow-soft h-48 bg-secondary flex items-center justify-center">
-              <p className="text-muted-foreground text-sm">
-                Map placeholder - Add Google Maps embed
-              </p>
+            <div className="rounded-2xl overflow-hidden shadow-soft h-64">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5965338522!2d77.61245717507656!3d12.934484987384836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1452f57f5173%3A0x4c43f7e36aac4e01!2sKoramangala%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1706900000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Serenity Yoga Studio Location"
+                className="w-full h-full"
+              />
             </div>
           </motion.div>
         </div>
