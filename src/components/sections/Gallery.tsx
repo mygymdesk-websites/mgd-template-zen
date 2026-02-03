@@ -4,12 +4,12 @@ import { X } from 'lucide-react';
 import { useInView } from '@/hooks/useInView';
 import SectionHeading from '@/components/ui/SectionHeading';
 
-import gallery1 from '@/assets/gallery-1.jpg';
-import gallery2 from '@/assets/gallery-2.jpg';
-import gallery3 from '@/assets/gallery-3.jpg';
-import gallery4 from '@/assets/gallery-4.jpg';
+import gallery1 from '@/assets/gallery-1.webp';
+import gallery2 from '@/assets/gallery-2.webp';
+import gallery3 from '@/assets/gallery-3.webp';
+import gallery4 from '@/assets/gallery-4.webp';
 import aboutStudio from '@/assets/about-studio.webp';
-import classVinyasa from '@/assets/class-vinyasa.jpg';
+import classVinyasa from '@/assets/class-vinyasa.webp';
 
 const images = [
   { src: gallery1, alt: 'Studio reception area', span: true },

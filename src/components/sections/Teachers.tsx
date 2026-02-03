@@ -3,16 +3,16 @@ import { useInView } from '@/hooks/useInView';
 import SectionHeading from '@/components/ui/SectionHeading';
 import TeacherCard from '@/components/ui/TeacherCard';
 
-import teacher1 from '@/assets/teacher-1.jpg';
-import teacher2 from '@/assets/teacher-2.jpg';
-import teacher3 from '@/assets/teacher-3.jpg';
-import teacher4 from '@/assets/teacher-4.jpg';
+import teacher1 from '@/assets/teacher-1.webp';
+import teacher2 from '@/assets/teacher-2.webp';
+import teacher3 from '@/assets/teacher-3.webp';
+import teacher4 from '@/assets/teacher-4.webp';
 
 const teacherImages: Record<string, string> = {
-  'teacher-1.jpg': teacher1,
-  'teacher-2.jpg': teacher2,
-  'teacher-3.jpg': teacher3,
-  'teacher-4.jpg': teacher4,
+  'teacher-1.webp': teacher1,
+  'teacher-2.webp': teacher2,
+  'teacher-3.webp': teacher3,
+  'teacher-4.webp': teacher4,
 };
 
 import teachersData from '@/data/teachers.json';
