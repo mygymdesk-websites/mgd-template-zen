@@ -1,79 +1,95 @@
 
-# Revert Images from WebP to JPG Format
+# Create Brand Favicon for Serenity Yoga
 
-Since the WebP conversion resulted in files 8-10x larger than the original JPGs (unusual, but likely due to the conversion process used), this plan reverts all image references back to the original, smaller JPG files.
+Create a custom favicon that represents the Serenity Yoga brand identity and update all favicon/metadata references throughout the site.
 
 ## Summary
 
-Update all image imports and data file references from `.webp` to `.jpg` across 7 files. The original JPG files already exist in the project, so no new files need to be created.
+Design and implement a brand-appropriate favicon using the existing color palette (sage green #9CAF88) and zen aesthetic, then update the HTML to reference it properly and ensure all meta tags are brand-consistent.
 
 ---
 
 ## Changes Required
 
-### 1. Hero Section
-**File:** `src/components/sections/Hero.tsx`
-- Change import from `hero-yoga.webp` to `hero-yoga.jpg`
+### 1. Generate Brand Favicon
+**Action:** Create a custom favicon using AI image generation
 
-### 2. About Section
-**File:** `src/components/sections/About.tsx`
-- Change import from `about-studio.webp` to `about-studio.jpg`
+Design concept:
+- **Icon**: Simple lotus flower or yoga/meditation silhouette
+- **Color**: Sage green (#9CAF88) - the brand's primary color
+- **Style**: Minimalist, zen-inspired, clean lines
+- **Format**: PNG for modern browsers with ICO fallback
 
-### 3. Classes Section
-**File:** `src/components/sections/Classes.tsx`
-- Update 6 class image imports from `.webp` to `.jpg`:
-  - `class-vinyasa.webp` → `class-vinyasa.jpg`
-  - `class-yin.webp` → `class-yin.jpg`
-  - `class-meditation.webp` → `class-meditation.jpg`
-  - `class-prenatal.webp` → `class-prenatal.jpg`
-  - `class-restorative.webp` → `class-restorative.jpg`
-  - `class-breathwork.webp` → `class-breathwork.jpg`
-- Update the `classImages` lookup object keys to match
+The favicon will embody the "Serenity Yoga" brand values:
+- Inner peace (lotus symbolism)
+- Mindfulness (clean, uncluttered design)
+- Nature connection (sage green color)
 
-### 4. Teachers Section
-**File:** `src/components/sections/Teachers.tsx`
-- Update 4 teacher image imports from `.webp` to `.jpg`:
-  - `teacher-1.webp` → `teacher-1.jpg`
-  - `teacher-2.webp` → `teacher-2.jpg`
-  - `teacher-3.webp` → `teacher-3.jpg`
-  - `teacher-4.webp` → `teacher-4.jpg`
-- Update the `teacherImages` lookup object keys to match
+### 2. Update index.html - Favicon References
+**File:** `index.html`
 
-### 5. Gallery Section
-**File:** `src/components/sections/Gallery.tsx`
-- Update 6 image imports from `.webp` to `.jpg`:
-  - `gallery-1.webp` → `gallery-1.jpg`
-  - `gallery-2.webp` → `gallery-2.jpg`
-  - `gallery-3.webp` → `gallery-3.jpg`
-  - `gallery-4.webp` → `gallery-4.jpg`
-  - `about-studio.webp` → `about-studio.jpg`
-  - `class-vinyasa.webp` → `class-vinyasa.jpg`
+Add proper favicon link tags (currently missing):
+```html
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+```
 
-### 6. Data Files
-**File:** `src/data/classes.json`
-- Update all 6 image references from `.webp` to `.jpg`
+### 3. Update index.html - OpenGraph/Twitter Meta Images
+**File:** `index.html`
 
-**File:** `src/data/teachers.json`
-- Update all 4 image references from `.webp` to `.jpg`
+Current meta tags reference Lovable's default image. Update to brand-appropriate:
+- Line 13: `og:image` → Update to Serenity Yoga branded image
+- Line 17: `twitter:image` → Update to Serenity Yoga branded image
+
+### 4. Create Multiple Favicon Sizes
+**Location:** `public/` directory
+
+Generate and save:
+| File | Size | Purpose |
+|------|------|---------|
+| `favicon.ico` | 32x32 | Legacy browser support |
+| `favicon-16x16.png` | 16x16 | Small browser tabs |
+| `favicon-32x32.png` | 32x32 | Standard browser tabs |
+| `apple-touch-icon.png` | 180x180 | iOS home screen |
 
 ---
 
-## Files to Modify
+## Implementation Steps
 
+1. Generate sage green lotus/yoga favicon using AI image generation
+2. Copy favicon files to `public/` directory
+3. Update `index.html` with:
+   - Favicon link tags
+   - Updated OG/Twitter image references
+4. Verify favicon appears in browser tab
+
+---
+
+## Technical Details
+
+### Brand Colors Reference
+```css
+/* Primary brand color for favicon */
+--primary: #9CAF88 (Sage green)
+--background: #F5F5F0 (Warm cream)
+--foreground: #2C2C2C (Charcoal)
+```
+
+### Files to Modify
 | File | Changes |
 |------|---------|
-| `src/components/sections/Hero.tsx` | 1 import |
-| `src/components/sections/About.tsx` | 1 import |
-| `src/components/sections/Classes.tsx` | 6 imports + 6 object keys |
-| `src/components/sections/Teachers.tsx` | 4 imports + 4 object keys |
-| `src/components/sections/Gallery.tsx` | 6 imports |
-| `src/data/classes.json` | 6 image references |
-| `src/data/teachers.json` | 4 image references |
+| `public/favicon.ico` | Replace with new brand icon |
+| `public/favicon-16x16.png` | New file |
+| `public/favicon-32x32.png` | New file |
+| `public/apple-touch-icon.png` | New file |
+| `index.html` | Add favicon links + update meta images |
 
----
+### Meta Tags to Update
+```html
+<!-- Current (Lovable default) -->
+<meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-## Technical Notes
-
-- All original `.jpg` files are still present in `src/assets/`
-- The `.webp` files can optionally be deleted afterward to reduce project size
-- No changes to image dimensions, loading strategies, or other optimizations needed
+<!-- Will be updated to reference brand assets -->
+```
